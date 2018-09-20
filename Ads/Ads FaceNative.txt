@@ -1,0 +1,393 @@
+<meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+			
+	========================================================================
+Banner:
+
+<LinearLayout
+        android:id="@+id/banner_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        />
+		
+		
+private AdView adView;
+
+@Override
+public void onCreate(Bundle savedInstanceState) {
+ ...
+  // Instantiate an AdView view
+  adView = new AdView(this, "YOUR_PLACEMENT_ID", AdSize.BANNER_HEIGHT_50);
+
+  // Find the Ad Container
+  LinearLayout adContainer = (LinearLayout) findViewById(R.id.banner_container);
+
+  // Add the ad view to your activity layout
+  adContainer.addView(adView);
+ 
+  // Request an ad
+  adView.loadAd();
+}		
+
+@Override
+protected void onDestroy() {
+  if (adView != null) {
+    adView.destroy();
+  }
+  super.onDestroy();
+}
+
+AdSettings.addTestDevice("HASHED ID");.
+			
+======================================================
+<ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title">
+
+        <LinearLayout
+            android:layout_width="match_parent
+			// ko cho tự scroll
+            android:descendantFocusability="blocksDescendants"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+menifest
+android:excludeFromRecents="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+
+khai báo trong xml thằng cha là scroll view và thêm đoạn này:
+
+
+			<LinearLayout
+                android:id="@+id/native_ad_container_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="@dimen/dimen_20dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" />
+
+			<com.google.android.gms.ads.AdView 
+				xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/AdViewMainNaviteAppotax"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+				android:layout_marginTop="20dp"
+				android:layout_marginBottom="@dimen/dimen_20dp"
+                ads:adSize="MEDIUM_RECTANGLE"
+                ads:adUnitId="ca-app-pub-1558743929353119/7512397165"/>
+
+          
+
+				
+onDestroy:
+
+  @Override
+    public void onDestroy() {
+        super.onDestroy();
+       
+        try {
+            mAdViewNativeAppotax.destroy();
+
+        } catch (Exception e) {
+        }
+        try {
+            nativeAd.destroy();
+
+        } catch (Exception e) {
+        }
+    }
+=============================================================================				
+trong java la Actitivy
+com.google.android.gms.ads.AdView mAdViewNativeAppotax;
+ //Native ads
+    private NativeAd nativeAd;
+    LinearLayout nativeAdContainer;
+    View adView;
+    private void showNativeAd() {
+     
+	mAdViewNativeAppotax = (com.google.android.gms.ads.AdView) findViewById(R.id.AdViewMainNaviteAppotax);
+        nativeAd = new NativeAd(getApplicationContext(), "ID_ADS");
+        nativeAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded(Ad ad) {
+                if (ad != nativeAd) {
+                    return;
+                }
+
+                // Add the Ad view into the ad container.
+                nativeAdContainer = (LinearLayout)findViewById(R.id.native_ad_container_main);
+                LayoutInflater inflater = LayoutInflater.from(getApplicationContext());
+                // Inflate the Ad view.  The layout referenced should be the one you created in the last step.
+                adView = (LinearLayout) inflater.inflate(R.layout.native_ad_layout, nativeAdContainer, false);
+                nativeAdContainer.addView(adView);
+
+                // Create native UI using the ad metadata.
+                ImageView nativeAdIcon = (ImageView) adView.findViewById(R.id.native_ad_icon);
+                TextView nativeAdTitle = (TextView) adView.findViewById(R.id.native_ad_title);
+                MediaView nativeAdMedia = (MediaView) adView.findViewById(R.id.native_ad_media);
+                TextView nativeAdSocialContext = (TextView) adView.findViewById(R.id.native_ad_social_context);
+                TextView nativeAdBody = (TextView) adView.findViewById(R.id.native_ad_body);
+                Button nativeAdCallToAction = (Button) adView.findViewById(R.id.native_ad_call_to_action);
+
+                // Set the Text.
+                nativeAdSocialContext.setText(nativeAd.getAdSocialContext());
+                nativeAdTitle.setText(nativeAd.getAdTitle());
+                nativeAdBody.setText(nativeAd.getAdBody());
+                nativeAdCallToAction.setText(nativeAd.getAdCallToAction());
+
+                // Download and display the ad icon.
+                NativeAd.Image adIcon = nativeAd.getAdIcon();
+                NativeAd.downloadAndDisplayImage(adIcon, nativeAdIcon);
+
+                // Download and display the cover image.
+                nativeAdMedia.setNativeAd(nativeAd);
+
+                // Add the AdChoices icon
+                LinearLayout adChoicesContainer = (LinearLayout)findViewById(R.id.ad_choices_container);
+                AdChoicesView adChoicesView = new AdChoicesView(getApplicationContext(), nativeAd, true);
+                adChoicesContainer.addView(adChoicesView);
+
+                // Register the Title and CTA button to listen for clicks.
+                List<View> clickableViews = new ArrayList<>();
+                clickableViews.add(nativeAdIcon);
+                clickableViews.add(nativeAdTitle);
+                clickableViews.add(nativeAdMedia);
+                clickableViews.add(nativeAdSocialContext);
+                clickableViews.add(nativeAdBody);
+                clickableViews.add(nativeAdCallToAction);
+                nativeAd.registerViewForInteraction(nativeAdContainer,clickableViews);
+
+                
+            }
+
+            @Override
+            public void onError(Ad ad, AdError error) {
+                //show Native ads
+               // showNativeAdsApotax();
+                
+            }
+
+            @Override
+            public void onAdClicked(Ad ad) {
+                // Ad clicked callback
+            }
+
+            @Override
+            public void onLoggingImpression(Ad ad) {
+
+            }
+        });
+
+        // Request an ad
+        nativeAd.loadAd();
+    }
+    //End Native ads
+	
+	 private void showNativeAdsApotax() {
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdViewNativeAppotax.setVisibility(View.VISIBLE);
+
+        mAdViewNativeAppotax.setAdListener(new com.google.android.gms.ads.AdListener() {
+            @Override
+            public void onAdFailedToLoad(int i) {
+                super.onAdFailedToLoad(i);
+                mAdViewNativeAppotax.setVisibility(View.GONE);
+
+            }
+        });
+        try {
+            mAdViewNativeAppotax.loadAd(adRequest);
+
+        } catch (Exception e) {
+        }
+
+
+    }
+
+	
+	
+=============================================================================				
+trong java la Fragment
+
+// private AdView adViewBanner;
+
+
+    com.google.android.gms.ads.AdView mAdViewNativeAppotax;
+    //Native ads
+    private NativeAd nativeAd;
+    LinearLayout nativeAdContainer;
+    View adView;
+
+    private void showNativeAd() {
+        mAdViewNativeAppotax = (com.google.android.gms.ads.AdView) view.findViewById(R.id.AdViewMainNaviteAppotax); // Id appotax
+        nativeAd = new NativeAd(getActivity().getApplicationContext(), "1869948346587769_1869949673254303");
+        nativeAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded(Ad ad) {
+                if (ad != nativeAd) {
+                    return;
+                }
+
+                // Add the Ad view into the ad container.
+                nativeAdContainer = (LinearLayout) getView().findViewById(R.id.native_ad_container_main);
+                LayoutInflater inflater = LayoutInflater.from(getActivity().getApplicationContext());
+                // Inflate the Ad view.  The layout referenced should be the one you created in the last step.
+                adView = (LinearLayout) inflater.inflate(R.layout.native_ad_layout, nativeAdContainer, false);
+                nativeAdContainer.addView(adView);
+
+                // Create native UI using the ad metadata.
+                ImageView nativeAdIcon = (ImageView) adView.findViewById(R.id.native_ad_icon);
+                TextView nativeAdTitle = (TextView) adView.findViewById(R.id.native_ad_title);
+                MediaView nativeAdMedia = (MediaView) adView.findViewById(R.id.native_ad_media);
+                TextView nativeAdSocialContext = (TextView) adView.findViewById(R.id.native_ad_social_context);
+                TextView nativeAdBody = (TextView) adView.findViewById(R.id.native_ad_body);
+                Button nativeAdCallToAction = (Button) adView.findViewById(R.id.native_ad_call_to_action);
+
+                // Set the Text.
+                nativeAdSocialContext.setText(nativeAd.getAdSocialContext());
+                nativeAdTitle.setText(nativeAd.getAdTitle());
+                nativeAdBody.setText(nativeAd.getAdBody());
+                nativeAdCallToAction.setText(nativeAd.getAdCallToAction());
+
+                // Download and display the ad icon.
+                NativeAd.Image adIcon = nativeAd.getAdIcon();
+                NativeAd.downloadAndDisplayImage(adIcon, nativeAdIcon);
+
+                // Download and display the cover image.
+                nativeAdMedia.setNativeAd(nativeAd);
+
+                // Add the AdChoices icon
+                LinearLayout adChoicesContainer = (LinearLayout) getView().findViewById(R.id.ad_choices_container);
+                AdChoicesView adChoicesView = new AdChoicesView(getActivity().getApplicationContext(), nativeAd, true);
+                adChoicesContainer.addView(adChoicesView);
+
+                // Register the Title and CTA button to listen for clicks.
+                List<View> clickableViews = new ArrayList<>();
+                clickableViews.add(nativeAdIcon);
+                clickableViews.add(nativeAdTitle);
+                clickableViews.add(nativeAdMedia);
+                clickableViews.add(nativeAdSocialContext);
+                clickableViews.add(nativeAdBody);
+                clickableViews.add(nativeAdCallToAction);
+                nativeAd.registerViewForInteraction(nativeAdContainer, clickableViews);
+
+                mAdViewNativeAppotax.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onError(Ad ad, AdError error) {
+                //show Native ads
+                showNativeAdsApotax();
+            }
+
+            @Override
+            public void onAdClicked(Ad ad) {
+                // Ad clicked callback
+            }
+
+            @Override
+            public void onLoggingImpression(Ad ad) {
+
+            }
+        });
+
+        // Request an ad
+        try {
+            nativeAd.loadAd();
+
+        } catch (Exception e) {
+        }
+    }
+    //End Native ads
+
+    private void showNativeAdsApotax() {
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdViewNativeAppotax.setVisibility(View.VISIBLE);
+
+        mAdViewNativeAppotax.setAdListener(new com.google.android.gms.ads.AdListener() {
+            @Override
+            public void onAdFailedToLoad(int i) {
+                super.onAdFailedToLoad(i);
+                mAdViewNativeAppotax.setVisibility(View.GONE);
+
+            }
+        });
+        try {
+            mAdViewNativeAppotax.loadAd(adRequest);
+
+        } catch (Exception e) {
+        }
+
+
+    }
+	
+=============================================================================				
+Full Face:
+
+ InterstitialAd interstitialAd;
+
+ private void showAdsFull() {
+        interstitialAd = new InterstitialAd(getActivity(), getResources().getString(R.string.full_banner_lock_love));
+// Set listeners for the Interstitial Ad
+        interstitialAd.setAdListener(new InterstitialAdListener() {
+            @Override
+            public void onInterstitialDisplayed(Ad ad) {
+                // Interstitial displayed callback
+            }
+
+            @Override
+            public void onInterstitialDismissed(Ad ad) {
+                // Interstitial dismissed callback
+            }
+
+            @Override
+            public void onError(Ad ad, AdError adError) {
+                // Ad error callback
+
+
+            }
+
+            @Override
+            public void onAdLoaded(Ad ad) {
+                // Show the ad when it's done loading.
+                try {
+                    interstitialAd.show();
+                }catch (Exception e){}
+            }
+
+            @Override
+            public void onAdClicked(Ad ad) {
+                // Ad clicked callback
+            }
+
+            @Override
+            public void onLoggingImpression(Ad ad) {
+
+            }
+        });
+
+        // Bat su kien button va goi cau lenh duoi de hien full banner
+        try {
+            interstitialAd.loadAd();
+        }catch (Exception e){}
+
+    }
+	
+	 @Override
+    public void onDestroy() {
+        super.onDestroy();
+        try {
+            interstitialAd.destroy();
+        }catch (Exception e){}
+    }
+

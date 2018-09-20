@@ -1,0 +1,29 @@
+	
+HashSet should be used when you don't want to allow duplicate value in your collection. 
+In HashSet you won't be able to find value by index. 
+If you still want to find the element you have no other option but to use the iterator, 
+it will iterate through the Hashset and give you one by one element from the Hashset.
+
+You want to find your element by index you should use ArrayList.
+
+There are two ways of iterating the HashSet -
+
+HashSet <String> newset = new HashSet <String>();
+
+ // populate hash set
+      newset.add("A"); 
+      newset.add("BB");
+      newset.add("CCC");  
+
+      // create an iterator
+      Iterator iterator = newset.iterator(); 
+
+      // check values
+      while (iterator.hasNext()){
+         System.out.println("Value: "+iterator.next() + " ");  
+      }
+Second approach is by using for loop-
+
+for (String s : newset ) {
+    System.out.println("Value: " +s);
+}

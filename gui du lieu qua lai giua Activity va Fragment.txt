@@ -1,0 +1,70 @@
+
+I think that you should use an interface for that. You can call a method in your fragment, pass the value to that method, and then implement the interface in your Activity 1.
+
+ Fragment                             Activity 1
+(call result(yourValue))           implement interface : result(int result)           
+      |                                    |
+      |----> Interface ------------------->|
+             (method result(int result)
+
+-------------------------------------
+Create a new interface Communicator:
+
+public interface Communicator {
+   void result(Object result);
+}
+
+--------------------
+In your fragment :
+
+Communicator comm;
+...
+comm = (Communicator) getActivity();
+...
+comm.result(yourValue);
+
+
+-------------------
+In your Activity1 :
+
+//make you class extend the interface (Communicator)
+
+public class Activity1 extends AppCompatActivity implements Communicator
+...
+//Override the method
+@Override
+public void result(Object result) {
+  //result is you value, now you can do whatever you want with it
+
+  result.getClass(); // this will return the type of object
+  if(result.getClass().equals(Integer.class)){
+    // do something
+  }else if(...){
+    ...
+  }
+}
+
+
+---------------------------------------------------------------------------------------
+
+ Activity 1                           Fragment       
+      |                                    |
+      |----> sendata------------------->|
+
+From Activity you send data with intent as:
+
+Bundle bundle = new Bundle();
+bundle.putString("edttext", "From Activity");
+// set Fragmentclass Arguments
+Fragmentclass fragobj = new Fragmentclass();
+fragobj.setArguments(bundle);
+
+------------------------------------
+and in Fragment onCreateView method:
+
+@Override
+public View onCreateView(LayoutInflater inflater, ViewGroup container,
+        Bundle savedInstanceState) {
+    String strtext = getArguments().getString("edttext");    
+    return inflater.inflate(R.layout.fragment, container, false);
+}

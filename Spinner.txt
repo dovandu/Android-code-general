@@ -1,0 +1,98 @@
+ ArrayAdapter nameAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.item_spiner, array);
+        nameAdapter.setDropDownViewResource(R.layout.item_single_choice);
+        mSpiner.setAdapter(nameAdapter);
+		
+		//set click position
+	 mSpiner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+		
+		 <Spinner
+            android:id="@+id/mSpinner"
+            android:layout_width="@dimen/dimen_120dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_spiner"
+            android:dropDownVerticalOffset="40dp"/>
+			
+			
+			android:dropDownVerticalOffset="40dp": cách choice 1 khoảng
+
+		================================================
+		item_single_choice.xml
+		
+		<?xml version="1.0" encoding="utf-8"?>
+<CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/text1"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:gravity="center_vertical"
+    android:checkMark="?android:attr/listChoiceIndicatorSingle"
+    android:paddingLeft="6dip"
+    android:paddingRight="6dip"
+    android:textColor="#000000"
+    />
+	
+	=====================================================
+	item_spiner.xml
+	
+	<?xml version="1.0" encoding="utf-8"?>
+
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="@dimen/dimen_16sp"
+    android:id="@+id/tv_text"
+    android:singleLine="true"
+    android:gravity="left"
+    android:text="@string/type_setting"
+    android:textColor="@color/black"
+    android:padding="5dip"
+    />
+	
+	
+	
+	===================================================
+	
+	bg_spiner.xml
+	===================================================
+	<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+
+        <layer-list>
+
+            <item>
+                <shape>
+                    <gradient android:angle="90"
+                        android:endColor="@color/gray_300"
+                        android:startColor="@color/gray_300" android:type="linear" />
+
+
+                    <corners android:radius="0dp" />
+
+                </shape>
+            </item>
+
+            <item android:right="@dimen/dimen_0dp">
+
+                <bitmap android:gravity="center_vertical|right"
+                    android:src="@drawable/ic_arrow_drop_down_black_24dp" />
+
+            </item>
+
+        </layer-list>
+
+    </item>
+
+</selector>

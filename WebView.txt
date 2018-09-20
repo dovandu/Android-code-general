@@ -1,0 +1,35 @@
+public class ContentActivity extends AppCompatActivity {
+
+    WebView wv_content;
+    String url;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_content);
+
+        wv_content = (WebView) findViewById(R.id.wv_content);
+        int mon = getIntent().getIntExtra("position", 0);
+        url = "file:///android_asset/" + mon + ".html";
+        wv_content.getSettings().setJavaScriptEnabled(true);
+        wv_content.loadUrl(url);
+        wv_content.setWebViewClient(new MyBrower());
+        ads();
+    }
+
+    private void ads() {
+        AdView avBanner =(AdView)findViewById(R.id.av_banner);
+         AdRequest  adRequest = new AdRequest.Builder().build();
+        avBanner.loadAd(adRequest);
+    }
+
+    private class MyBrower extends WebViewClient {
+
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+
+            return true;
+        }
+    }
+}

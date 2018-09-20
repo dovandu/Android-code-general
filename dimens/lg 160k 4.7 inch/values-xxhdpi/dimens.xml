@@ -1,0 +1,151 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">32dp</dimen>
+    <dimen name="activity_vertical_margin">32dp</dimen>
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!--1dp-10dp-->
+    <dimen name="_dimen_4dp">-4.851064dp</dimen>
+    <dimen name="dimen_0dp">0dp</dimen>
+    <dimen name="dimen_05dp">0.6606dp</dimen>
+    <dimen name="dimen_033dp">0.4dp</dimen>
+    <dimen name="dimen_1dp">1.11dp</dimen>
+    <dimen name="dimen_2dp">2.21dp</dimen>
+    <dimen name="dimen_3dp">3.32dp</dimen>
+    <dimen name="dimen_4dp">4.43dp</dimen>
+    <dimen name="dimen_5dp">5.53dp</dimen>
+    <dimen name="dimen_6dp">6.64dp</dimen>
+    <dimen name="dimen_7dp">7.74dp</dimen>
+    <dimen name="dimen_8dp">8.85dp</dimen>
+    <dimen name="dimen_9dp">9.96dp</dimen>
+    <dimen name="dimen_10dp">11.06dp</dimen>
+    <dimen name="dimen_11dp">12.17dp</dimen>
+    <dimen name="dimen_12dp">13.28dp</dimen>
+    <dimen name="dimen_13dp">14.38dp</dimen>
+    <dimen name="dimen_14dp">15.49dp</dimen>
+    <dimen name="dimen_15dp">16.6dp</dimen>
+    <dimen name="dimen_16dp">17.7dp</dimen>
+    <dimen name="dimen_17dp">18.81dp</dimen>
+    <dimen name="dimen_18dp">19.91dp</dimen>
+    <dimen name="dimen_19dp">21.02dp</dimen>
+    <dimen name="dimen_20dp">22.13dp</dimen>
+    <dimen name="dimen_21dp">23.23dp</dimen>
+    <dimen name="dimen_22dp">24.34dp</dimen>
+    <dimen name="dimen_23dp">25.45dp</dimen>
+    <dimen name="dimen_24dp">26.55dp</dimen>
+    <dimen name="dimen_25dp">27.66dp</dimen>
+    <dimen name="dimen_26dp">28.77dp</dimen>
+    <dimen name="dimen_27dp">29.87dp</dimen>
+    <dimen name="dimen_28dp">30.98dp</dimen>
+    <dimen name="dimen_29dp">32.09dp</dimen>
+    <dimen name="dimen_30dp">33.19dp</dimen>
+    <dimen name="dimen_31dp">34.3dp</dimen>
+    <dimen name="dimen_32dp">35.4dp</dimen>
+    <dimen name="dimen_33dp">36.51dp</dimen>
+    <dimen name="dimen_34dp">37.62dp</dimen>
+    <dimen name="dimen_35dp">38.72dp</dimen>
+    <dimen name="dimen_36dp">39.83dp</dimen>
+    <dimen name="dimen_37dp">40.94dp</dimen>
+    <dimen name="dimen_38dp">42.04dp</dimen>
+    <dimen name="dimen_39dp">43.15dp</dimen>
+    <dimen name="dimen_40dp">44.26dp</dimen>
+    <dimen name="dimen_41dp">45.36dp</dimen>
+    <dimen name="dimen_42dp">46.47dp</dimen>
+    <dimen name="dimen_43dp">47.57dp</dimen>
+    <dimen name="dimen_44dp">48.68dp</dimen>
+    <dimen name="dimen_45dp">49.79dp</dimen>
+    <dimen name="dimen_46dp">50.89dp</dimen>
+    <dimen name="dimen_47dp">52dp</dimen>
+    <dimen name="dimen_48dp">53.11dp</dimen>
+    <dimen name="dimen_49dp">54.21dp</dimen>
+    <dimen name="dimen_50dp">55.32dp</dimen>
+    <dimen name="dimen_60dp">66.38dp</dimen>
+    <dimen name="dimen_70dp">77.45dp</dimen>
+    <dimen name="dimen_80dp">88.51dp</dimen>
+    <dimen name="dimen_90dp">99.57dp</dimen>
+    <dimen name="dimen_100dp">110.64dp</dimen>
+    <dimen name="dimen_110dp">121.7dp</dimen>
+    <dimen name="dimen_120dp">132.77dp</dimen>
+    <dimen name="dimen_130dp">143.83dp</dimen>
+    <dimen name="dimen_140dp">154.89dp</dimen>
+    <dimen name="dimen_150dp">165.96dp</dimen>
+    <dimen name="dimen_160dp">177.02dp</dimen>
+    <dimen name="dimen_170dp">188.09dp</dimen>
+    <dimen name="dimen_180dp">199.15dp</dimen>
+    <dimen name="dimen_190dp">210.21dp</dimen>
+    <dimen name="dimen_200dp">221.28dp</dimen>
+    <dimen name="dimen_210dp">232.34dp</dimen>
+    <dimen name="dimen_220dp">243.4dp</dimen>
+    <dimen name="dimen_230dp">254.47dp</dimen>
+    <dimen name="dimen_240dp">265.53dp</dimen>
+    <dimen name="dimen_250dp">276.6dp</dimen>
+    <dimen name="dimen_260dp">287.66dp</dimen>
+    <dimen name="dimen_270dp">298.72dp</dimen>
+    <dimen name="dimen_280dp">309.79dp</dimen>
+    <dimen name="dimen_290dp">320.85dp</dimen>
+    <dimen name="dimen_300dp">331.91dp</dimen>
+
+    <!--sp-->
+
+     <dimen name="dimen_1sp">1sp</dimen>
+    <dimen name="dimen_2sp">2sp</dimen>
+    <dimen name="dimen_3sp">3sp</dimen>
+    <dimen name="dimen_4sp">4sp</dimen>
+    <dimen name="dimen_5sp">5sp</dimen>
+    <dimen name="dimen_6sp">6sp</dimen>
+    <dimen name="dimen_7sp">7sp</dimen>
+    <dimen name="dimen_8sp">8sp</dimen>
+    <dimen name="dimen_9sp">9sp</dimen>
+    <dimen name="dimen_10sp">10sp</dimen>
+
+    <!--11sp-20sp-->
+    <dimen name="dimen_11sp">11sp</dimen>
+    <dimen name="dimen_12sp">12sp</dimen>
+    <dimen name="dimen_13sp">13sp</dimen>
+    <dimen name="dimen_14sp">14sp</dimen>
+    <dimen name="dimen_15sp">15sp</dimen>
+    <dimen name="dimen_16sp">16sp</dimen>
+    <dimen name="dimen_17sp">17sp</dimen>
+    <dimen name="dimen_18sp">18sp</dimen>
+    <dimen name="dimen_19sp">19sp</dimen>
+    <dimen name="dimen_20sp">20sp</dimen>
+
+    <!--21sp-30sp-->
+    <dimen name="dimen_21sp">21sp</dimen>
+    <dimen name="dimen_22sp">22sp</dimen>
+    <dimen name="dimen_23sp">23sp</dimen>
+    <dimen name="dimen_24sp">24sp</dimen>
+    <dimen name="dimen_25sp">25sp</dimen>
+    <dimen name="dimen_26sp">26sp</dimen>
+    <dimen name="dimen_27sp">27sp</dimen>
+    <dimen name="dimen_28sp">28sp</dimen>
+    <dimen name="dimen_29sp">29sp</dimen>
+    <dimen name="dimen_30sp">30sp</dimen>
+
+    <!--31sp-40sp-->
+    <dimen name="dimen_31sp">31sp</dimen>
+    <dimen name="dimen_32sp">32sp</dimen>
+    <dimen name="dimen_33sp">33sp</dimen>
+    <dimen name="dimen_34sp">34sp</dimen>
+    <dimen name="dimen_35sp">35sp</dimen>
+    <dimen name="dimen_36sp">36sp</dimen>
+    <dimen name="dimen_37sp">37sp</dimen>
+    <dimen name="dimen_38sp">38sp</dimen>
+    <dimen name="dimen_39sp">39sp</dimen>
+    <dimen name="dimen_40sp">40sp</dimen>
+
+    <!--41sp-50sp-->
+    <dimen name="dimen_41sp">41sp</dimen>
+    <dimen name="dimen_42sp">42sp</dimen>
+    <dimen name="dimen_43sp">43sp</dimen>
+    <dimen name="dimen_44sp">44sp</dimen>
+    <dimen name="dimen_45sp">45sp</dimen>
+    <dimen name="dimen_46sp">46sp</dimen>
+    <dimen name="dimen_47sp">47sp</dimen>
+    <dimen name="dimen_48sp">48sp</dimen>
+    <dimen name="dimen_49sp">49sp</dimen>
+    <dimen name="dimen_50sp">50sp</dimen>
+
+</resources>

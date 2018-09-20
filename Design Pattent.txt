@@ -1,0 +1,60 @@
+We thing of a "Head First" reader as a learner
+
+Some of the Head First learning principles:
+
+1. Make it visual:
+
+2. Use a conversation and personalized style
+
+3. Get the learner to think more deeply
+
+4. Get -and keep-the reader's attention
+
+5. Touch their emotions
+
+
+===================================
+Here's what you can do to bend your brain into submission
+
+1. Slow down. the more you understand, the less you have to memorize
+
+2. Do the exercises. Write your own notes
+
+3. Read the "There are No Dumb Questions"
+
+5. Make this last thing you read before bed. Or at least the last challenging thing
+
+6. Drink water. Lots of it
+
+7. Talk about it. Out loud
+
+
+8. listion to your brain
+
+9. Fell something!
+
+10. Desing something!
+
+
+========================
+Desing principles
+
+1. Identify the aspect of your application that vary and separate them from what stays the same.
+
+2. Program to an interface, not an implementation
+
+3. Favor composition over in heritance
+
+
+===========================
+1. Desing Pattern overview
+===========================
+
+===========================
+2. Factory Pattern
+===========================
+
+===========================
+3. ABSTRACT FACTORY PATTERN
+===========================
+

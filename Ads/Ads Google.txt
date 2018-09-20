@@ -1,0 +1,84 @@
+  <ScrollView
+        <LinearLayout        
+		// chặn ko cho tự scroll ads
+            android:descendantFocusability="blocksDescendants">
+
+ <uses-permission android:name="android.permission.INTERNET" />
+
+ <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
+
+compile 'com.google.android.gms:play-services-ads:10.2.1'
+
+
+
+ <com.google.android.gms.ads.AdView
+	    xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/av_banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            ads:adSize="SMART_BANNER"
+            ads:adUnitId="@string/ad_unit_banner" />
+
+Quang cao 1
+
+<string name="ad_unit_banner">ca-app-pub-1558743929353119/6723031785</string>
+<string name="ad_unit_full">ca-app-pub-1558743929353119/1288286987</string>
+
+
+ private AdView avBanner;
+ private AdRequest adRequest;
+
+ private InterstitialAd interstitialAd;
+
+
+    private void ads() {
+        AdView  avBanner =(AdView)findViewById(R.id.av_banner);
+        // AdRequest  adRequest = new AdRequest.Builder().build();
+AdRequest  adRequest = new AdRequest.Builder().addTestDevice("D01BA4F1714F3DFFDC0E83D83EA40A3B").build();
+        avBanner.loadAd(adRequest);
+    }
+
+
+
+
+ private void adsfullscreen() {
+      final  InterstitialAd  interstitialAd = new InterstitialAd(this);
+        interstitialAd.setAdUnitId(getResources().getString(R.string.ad_unit_full));
+        interstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+                interstitialAd.show();
+            }
+
+            @Override
+            public void onAdOpened() {
+                super.onAdOpened();
+
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                super.onAdLeftApplication();
+            }
+
+            @Override
+            public void onAdFailedToLoad(int i) {
+                super.onAdFailedToLoad(i);
+            }
+
+            @Override
+            public void onAdClosed() {
+                super.onAdClosed();
+            }
+        });
+       // AdRequest  adRequest = new AdRequest.Builder().build();
+AdRequest  adRequest = new AdRequest.Builder().addTestDevice("D01BA4F1714F3DFFDC0E83D83EA40A3B").build();
+        interstitialAd.loadAd(adRequest);
+    }
+
+

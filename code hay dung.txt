@@ -1,0 +1,58 @@
+ <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_lyric_music_player"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+		
+		
+		
+		
+		
+		=======================================
+switch (view.getId()) {
+            case R.id.im_favorite_screen_main_music_player:
+             
+                break;
+            case R.id.im_add_list_screen_main_music_player:
+               
+                break;
+            case R.id.im_share_screen_main_music_player:
+              
+                break;
+            case R.id.im_more_screen_main_music_player:
+            
+                break;
+        }
+		
+		==========================================
+if (isShuffle){
+            isShuffle = false;
+            
+        }else {
+            isShuffle = true;
+            
+        }
+		
+		
+		========================
+private Drawable drawableShuffleOn;
+    private Drawable drawableShuffleOff;
+    private Drawable drawablePlay;
+    private Drawable drawablePause;
+    private Drawable drawableRepeatOne;
+    private Drawable drawableRepeatOff;
+    private Drawable drawableRepeatAll;
+	
+	
+	
+	  drawableShuffleOn = getResources().getDrawable(R.drawable.ic_player_v4_shuffle_on);
+        drawableShuffleOff = getResources().getDrawable(R.drawable.ic_player_v4_shuffle_off);
+        drawablePlay = getResources().getDrawable(R.drawable.ic_player_v4_play);
+        drawablePause = getResources().getDrawable(R.drawable.ic_player_v4_pause);
+        drawableRepeatOne = getResources().getDrawable(R.drawable.ic_player_v4_repeat_one);
+        drawableRepeatOff = getResources().getDrawable(R.drawable.ic_player_v4_repeat_off);
+        drawableRepeatAll = getResources().getDrawable(R.drawable.ic_player_v4_repeat_all);
+======================================================

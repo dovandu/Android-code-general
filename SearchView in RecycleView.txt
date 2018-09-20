@@ -1,0 +1,99 @@
+ private void filter(String text) {
+        objectList.clear();
+        if (originalList != null && !originalList.isEmpty()) {
+            if (text == null || text.isEmpty()) {
+                objectList.addAll(originalList);
+            } else {
+                // filter from original
+                for (MarketSummary marketSummary : originalList) {
+                    if (marketSummary.getMarketName().toLowerCase().contains(text.toLowerCase())) {
+                        objectList.add(marketSummary);
+                    }
+                }
+            }
+        }
+        adapter.notifyDataSetChanged();
+    }
+
+===================================================================================================================================
+  @Override
+    public Filter getFilter() {
+        /**
+         * A filter object which will
+         * filter message key
+         * */
+        Filter filter = new Filter() {
+
+            @SuppressWarnings("unchecked")
+            @Override
+            protected void publishResults(CharSequence constraint,FilterResults results) {
+
+                wifiInfos = (List<WifiInforObject>) results.values; // has the filtered values
+                notifyDataSetChanged();  // notifies the data with new filtered values. Only filtered values will be shown on the list
+            }
+
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                FilterResults results = new FilterResults();        // Holds the results of a filtering operation for publishing
+
+                List<WifiInforObject> FilteredArrList = new ArrayList<>();
+
+                if (mOriginalValues == null) {
+                    mOriginalValues = new ArrayList<>(wifiInfos); // saves the original data in mOriginalValues
+                }
+
+                if(mListItem == null){
+                    mListItem = new ArrayList<>();
+                    for(WifiInforObject message : mOriginalValues){
+                        mListItem.add(message.getName());
+                    }
+                }
+
+                /**
+                 *
+                 *  If constraint(CharSequence that is received) is null returns the mOriginalValues(Original) values
+                 *  else does the Filtering and returns FilteredArrList(Filtered)
+                 *
+                 **/
+
+                if (constraint == null || constraint.length() == 0) {
+
+                    /* CONTRACT FOR IMPLEMENTING FILTER : set the Original values to result which will be returned for publishing */
+                    results.count = mOriginalValues.size();
+                    results.values = mOriginalValues;
+                } else {
+                    /* Do the filtering */
+                    constraint = constraint.toString().toLowerCase();
+
+                    for (int i = 0; i < mListItem.size(); i++) {
+                        String data = mListItem.get(i);
+                        if (data.toLowerCase().startsWith(constraint.toString())) {
+                            FilteredArrList.add(mOriginalValues.get(i));
+                        }
+                    }
+
+                    // set the Filtered result to return
+                    results.count = FilteredArrList.size();
+                    results.values = FilteredArrList;
+                }
+                return results;
+            }
+        };
+        return filter;
+    }
+
+
+====================================================================================================
+ mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                if (adapter != null) adapter.getFilter().filter(newText);
+                return true;
+        }
+
+    });

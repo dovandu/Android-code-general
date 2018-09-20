@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.eco.wifitoolmaster">
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+		
+		//khai báo thay đổi đa ngôn ngữ
+		android:configChanges="locale"
+        android:supportsRtl="true">
+        <activity
+            android:name=".MainActivity"
+			android:screenOrientation="portrait"
+			// cho phép mở 1 màn hình
+            android:launchMode="singleTop"
+		// ?n b�n ph�m, hi?n b�n ph�m ko cho scroll parent
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".widgetexample.APWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.net.wifi.WIFI_AP_STATE_CHANGED" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/appwidget_info" />
+        </receiver>
+
+        <meta-data android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"/>
+
+        <receiver
+            android:name=".service.MyBroadcastReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="1708842fbfbb84d1cefd83efb333c22afb2cfe0c"
+            />
+
+
+        <service
+            android:name=".service.NotificationService"
+            android:enabled="true"
+            android:exported="false"></service>
+
+        <activity android:name=".SettingActivity"
+            android:theme="@style/AppTheme"
+            android:launchMode="singleTop"
+            android:label="@string/setting_wifi">
+
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,18 @@
+ <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:itemBackground="@drawable/nav_item_drawable"
+        app:itemIconTint="@drawable/bottomsheet_itemicontint"
+        app:itemTextColor="@drawable/bottomsheet_itemtextcolor"
+        android:background="@color/white"
+        app:menu="@menu/navigation" />
+
+---------------------------
+
+MainActivity
+
+ BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        BottomNavigationViewHelper.removeShiftMode(navigation);

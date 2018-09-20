@@ -1,0 +1,174 @@
+import java.util.ArrayList;import Clients.ClientClass;
+
+    public interface ScanListener {
+        public void onFinishScan(ArrayList clients);
+    }
+
+    From:
+    Vũ Văn
+    Tườngpackage AccessPointManager;
+	import java.io.BufferedReader;
+	import java.io.FileReader;
+	import java.io.IOException;
+	import java.lang.reflect.Method;
+	import java.net.InetAddress;import java.util.ArrayList;import android.content.Context;import android.net.wifi.WifiManager;import android.os.Handler;import android.util.Log;import Clients.ClientClass;
+
+    public class WifiApManager {
+        public static WifiManager mWifiManager;
+        private Context context;
+        boolean onlyReachables;
+
+        public WifiApManager(Context context) {
+            this.context = context;
+            mWifiManager = (WifiManager) this.context.getSystemService(Context.WIFI_SERVICE);
+        }
+
+        public static WifiState getWifiApState(Context context) {
+            try {
+                Method method = mWifiManager.getClass().getMethod("getWifiApState");
+                int tmp = ((Integer) method.invoke(mWifiManager));
+                if (tmp >= 10) {
+                    tmp = tmp - 10;
+                }
+                return WifiState.class.getEnumConstants()[tmp];
+            } catch (Exception e) {
+                Log.e(context.getClass().toString(), "", e);
+                return WifiState.WIFI_AP_STATE_FAILED;
+            }
+        }
+
+        public static boolean isWifiApEnabled(Context context) {
+            return getWifiApState(context) == WifiState.WIFI_AP_STATE_ENABLED;
+        }
+
+        public void getClientList(boolean onlyReachables, ScanListener finishListener) {
+            getClientList(onlyReachables, 300, finishListener);
+        }
+
+        public void getClientList(final boolean onlyReachables, final int reachableTimeout, final ScanListener finishListener) {
+            this.onlyReachables = onlyReachables;
+            Runnable runnable = new Runnable() {
+                public void run() {
+                    BufferedReader br = null;
+                    final ArrayList result = new ArrayList();
+                    try {
+                        br = new BufferedReader(new FileReader("/proc/net/arp"));
+                        String line;
+                        while ((line = br.readLine()) != null) {
+                            String[] splitted = line.split(" +");
+                            if ((splitted != null) && (splitted.length >= 4)) {
+                                String mac = splitted[3];
+                                if (mac.matches("..:..:..:..:..:..")) {
+                                    boolean isReachable = InetAddress.getByName(splitted[0]).isReachable(reachableTimeout);
+                                    if (!onlyReachables || isReachable) {
+                                        result.add(new ClientClass(splitted[0], splitted[2], splitted[3]));
+                                    }
+                                }
+                            }
+                        }
+                    } catch (Exception e) {
+                        Log.e(this.getClass().toString(), e.toString());
+                    } finally {
+                        try {
+                            br.close();
+                        } catch (IOException e) {
+                            Log.e(this.getClass().toString(), e.getMessage());
+                        }
+                    }
+                    Handler mainHandler = new Handler(context.getMainLooper());
+                    Runnable myRunnable = new Runnable() {
+                        @Override
+                        public void run() {
+                            finishListener.onFinishScan(result);
+                        }
+                    };
+                    mainHandler.post(myRunnable);
+                }
+            };
+            Thread mythread = new Thread(runnable);
+            mythread.start();
+        }
+    }
+
+    From:
+    Vũ Văn
+    Tườngpackage AccessPointManager;
+
+    public enum WifiState {WIFI_AP_STATE_DISABLING, WIFI_AP_STATE_DISABLED, WIFI_AP_STATE_ENABLING, 
+        WIFI_AP_STATE_ENABLED, WIFI_AP_STATE_FAILED}
+		
+		
+		
+=============================================================================================================
+
+ lv =(ListView)
+
+    findViewById(R.id.listView);
+
+    wifiApManager =new
+
+    WifiApManager(ListDevice.this);
+
+    arrList =new ArrayList();
+
+    adapter =new Adapter(ListDevice.this, R.layout.list_item, arrList);
+
+    scan();
+	lv.setAdapter(adapter);
+	
+	t =new  Thread() {
+        @Overridepublic void run () {
+            try {
+                while (!isInterrupted()) {
+                    runOnUiThread(new Runnable() {
+                        @Overridepublic
+                        void run() {
+                            wifiApManager.getClientList(false, new ScanListener() {
+                                @Overridepublic
+                                void onFinishScan(ArrayList clients) {
+                                    for (ClientClass ClientClass : clients) {
+                                        for (i = 0; i < arrList.size(); i++) {
+                                            if (arrList.get(i).getMac().equals(ClientClass.getHWAddr())) {
+                                                if (ClientClass.getFlags().equals("0x0")) {
+                                                    arrList.remove(i);
+                                                    adapter.notifyDataSetChanged();
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+                            adapter.notifyDataSetChanged();
+                        }
+                    });
+                    Thread.sleep(5000);
+                }
+            } catch (InterruptedException e1) {
+                e1.printStackTrace();
+            }
+            return;
+        }
+    }
+
+    ;t.start();
+	
+	
+==========================================================================
+
+  private void scan() {
+        wifiApManager.getClientList(false, new ScanListener() {
+            @Overridepublic
+            void onFinishScan(ArrayList clients) {
+                for (ClientClass ClientClass : clients) {
+                    if (!ClientClass.getFlags().equals("0x0")) {
+                        ClientInfo CI = new ClientInfo(ClientClass.getIpAddr(), ClientClass.getHWAddr());
+                        arrList.add(CI);
+                    } else {
+                        continue;
+                    }
+                }
+                adapter.notifyDataSetChanged();
+            }
+        });
+    }

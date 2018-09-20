@@ -1,0 +1,65 @@
+============================
+|| THE OOA & A LIFECYCLE  ||
+============================
+
+1.Feature List ==> 2.Use Case Diagrams ==> 3.Break Up the Problem ==> 4.Requirement ==> 5.Domain Analysis ==> 6.Prelimnary Design ==> 7.Implementation ==> 8.Delivery
+
+1. Feature List: figure out what your app is supposed to do at a high level
+
+2. Use Case Diagrams: Nail down the big processes that your app performs, and any extrnal forces that are involved.
+
+3. Break Up the Problem: Break your application up into modules of functionality, and then decide on an order in which to tackle each of your modules
+
+4. Requirements: Figure out the individual requirements for each module, and make sure those fit in with the big picture
+
+5. Domain Analysis: Figure out how your use cases ,ap to objects in your app, and make sure your customer is on the same page as you are
+
+6. Prelimnary Design: Fill in detail about your object, define relationships between the objects, and apple principles and patterms
+
+7. Implementation: Write code, test it, and make it works. Do this for each behavior, each feature, each use case, each problem, until you're done
+
+8. Delivery: You're done ! release your software, submit your invoices, and get paid.
+
+========================
+Objectville RouteFinder 
+=======================
+
+<--===============================================================-->
+
+A. Feature List:
+
+1. We have to be able to represent a subway line and the stations along that line. 
+
+2. We must be albe to load multiple subway lines into the program, including overlapping lines
+
+3. We need to be able to figure out a valid path between any two stattions on any lines
+
+4. We need to be able to print out a route between two stations as a set of directions.
+
+<--===============================================================-->\
+
+B. Use case.
+
+1. The administrator supplies a file of stations and lines
+
+2. The system read in the name of a stations
+
+3. The system validates that the station doesn't already exist
+
+4. The system adds the new station to the subway
+
+5. The system repeats steps 2-3 until all station are added
+
+6. The system reads in the name of a line to added
+
+7. The system reads in two stations that are connected
+
+8.The system validates that the station exist
+
+9. The system creates a new connection between the two station, going in both directions on the current line
+
+10. The system repeats steps 7-9 until the line is complete
+
+11. The system repeats steps 6-10 until all lines are entered
+
+==================

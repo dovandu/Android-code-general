@@ -1,0 +1,27 @@
+
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:background="@color/naviga"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:itemTextColor="@color/white"
+        app:itemIconTint="@color/white"
+        android:fitsSystemWindows="true"
+        app:menu="@menu/activity_main_drawer" />
+
+chú thích		
+		  <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+		// background
+        android:background="@color/naviga"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+		// item text màu
+        app:itemTextColor="@color/white"
+		// item icon màu
+        app:itemIconTint="@color/white"
+        android:fitsSystemWindows="true"
+        app:menu="@menu/activity_main_drawer" />

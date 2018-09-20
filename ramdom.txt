@@ -1,0 +1,5 @@
+int min = 65;
+int max = 80;
+
+Random r = new Random();
+int i1 = r.nextInt(max - min + 1) + min;

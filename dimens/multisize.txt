@@ -1,0 +1,80 @@
+use directly https://romannurik.github.io/AndroidAssetStudio/
+
+    For example, two devices that both report a screen size of normal might have actual screen sizes and aspect ratios that are slightly different when measured by hand. Similarly, two devices that report a screen density of hdpi might have real pixel densities that are slightly different. Android makes these differences abstract to applications, so you can provide UI designed for the generalized sizes and densities and let the system handle any final adjustments as necessary
+
+You have to create different dimen , layout , images and icon files to support all devices.
+
+changes in screen density.
+
+xlarge screens are at least 960dp x 720dp
+large screens are at least 640dp x 480dp
+normal screens are at least 470dp x 320dp
+small screens are at least 426dp x 320dp
+
+Make this layout files, so that it will be same for all devices.
+
+Give padding ,margin ,font and all properties as per devices.
+
+res/layout/main_activity.xml           # For handsets (smaller than 600dp available width)
+res/layout-sw600dp/main_activity.xml   # For 7” tablets (600dp wide and bigger)
+res/layout-sw720dp/main_activity.xml   # For 10” tablets (720dp wide and bigger)
+
+For Layout ,
+
+res/layout/my_layout.xml              // layout for normal screen size ("default")
+res/layout-large/my_layout.xml        // layout for large screen size
+res/layout-xlarge/my_layout.xml       // layout for extra-large screen size
+res/layout-xlarge-land/my_layout.xml  // layout for extra-large in landscape orientation
+
+For Images
+
+res/drawable-mdpi/graphic.png         // bitmap for medium-density
+res/drawable-hdpi/graphic.png         // bitmap for high-density
+res/drawable-xhdpi/graphic.png        // bitmap for extra-high-density
+res/drawable-xxhdpi/graphic.png       // bitmap for extra-extra-high-density
+
+For Icon
+
+res/mipmap-mdpi/my_icon.png         // launcher icon for medium-density
+res/mipmap-hdpi/my_icon.png         // launcher icon for high-density
+res/mipmap-xhdpi/my_icon.png        // launcher icon for extra-high-density
+res/mipmap-xxhdpi/my_icon.png       // launcher icon for extra-extra-high-density
+res/mipmap-xxxhdpi/my_icon.png      // launcher icon for extra-extra-extra-high-density
+
+For Launcher icon
+
+36x36 (0.75x) for low-density
+48x48 (1.0x baseline) for medium-density
+72x72 (1.5x) for high-density
+96x96 (2.0x) for extra-high-density
+180x180 (3.0x) for extra-extra-high-density
+192x192 (4.0x) for extra-extra-extra-high-density (launcher icon only; see note above)
+
+============================================================================
+
+xlarge screens are at least 960dp x 720dp
+large screens are at least 640dp x 480dp
+normal screens are at least 470dp x 320dp
+small screens are at least 426dp x 320dp
+Generalised Dpi values for screens:
+
+ldpi Resources for low-density (ldpi) screens (~120dpi)
+mdpi Resources for medium-density (mdpi) screens (~160dpi). (This is the baseline density.)
+hdpi Resources for high-density (hdpi) screens (~240dpi).
+xhdpi Resources for extra high-density (xhdpi) screens (~320dpi).
+Therefore generalised size of your resources (assuming they are full screen):
+
+ldpi
+Vertical = 426 * 120 / 160 = 319.5px
+Horizontal = 320 * 120 / 160 = 240px
+mdpi
+Vertical = 470 * 160 / 160 = 470px
+Horizontal = 320 * 160 / 160 = 320px
+hdpi
+Vertical = 640 * 240 / 160 = 960px
+Horizontal = 480 * 240 / 160 = 720px
+xhdpi
+Vertical = 960 * 320 / 160 = 1920px
+Horizontal = 720 * 320 / 160 = 1440px
+
+px = dp*dpi/160

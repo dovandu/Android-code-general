@@ -1,0 +1,44 @@
+
+
+down vote
+You can use any of the following methods for setting the Drawable on TextView:
+
+1- setCompoundDrawablesWithIntrinsicBounds(int, int, int, int)
+
+2- setCompoundDrawables(Left_Drawable, Top_Drawable, Right_Drawable, Bottom_Drawable)
+
+And to get drawable from resources you can use:
+
+getResources().getDrawable(R.drawable.your_drawable_id);
+
+
+bold string
+--------------------------------------------
+String s = "<b>Bolded text</b>, <i>italic text</i>, even <u>underlined</u>!"
+TextView tv = (TextView)findViewById(R.id.THE_TEXTVIEW_ID);
+tv.setText(Html.fromHtml(s));
+------------------------------------------
+
+
+
+disable auto select editext android:
+--------------------------------------------------------
+-What about setting the parent layout to android:focusableInTouchMode="true"! 
+--------------------------------------------------------
+
+0
+down vote
+Three ways to solve this..
+--------------------------------------------------------
+1.Set these attributes to the parent..
+
+And now, when activity starts this layout getting default focus.
+
+Also we can remove focus from children views in runtime (e.g. after finishing child editing):
+--------------------------------------------------------
+2.findViewById(R.id.mainLayout).requestFocus(); or
+--------------------------------------------------------
+3.Look in the AndroidManifest.xml element.
+
+android:windowSoftInputMode="stateHidden" in that activity
+It always hide key board when entering the activity.

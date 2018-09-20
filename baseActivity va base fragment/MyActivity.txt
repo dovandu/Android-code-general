@@ -1,0 +1,73 @@
+package com.skyads.laguaz;
+
+import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
+import com.skyads.laguaz.Task.TaskType;
+import com.telpoo.frame.ui.BetaBaseFmActivity;
+
+/**
+ * Created by facebook.com/naq90 - Nguyen Anh Que on 26/05/2015.
+ */
+public class MyActivity extends BetaBaseFmActivity implements TaskType {
+    View progress;
+    MyActivity mActivity;
+    public static  TextView reLoadData;
+
+    public MyActivity(int resource_home) {
+        super(resource_home);
+    }
+
+    public MyActivity(String[] TabIds, int resource_home, String toastAskExit) {
+        super(TabIds, resource_home, toastAskExit);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+        DEVELOPER_MODE = true;
+        super.onCreate(savedInstanceState, persistentState);
+        mActivity = this;
+
+    }
+
+    public void showLoadingBar() {
+        if (progress != null)
+            progress.setVisibility(View.VISIBLE);
+    }
+
+
+    public void hideLoadingBar() {
+        if (progress != null)
+            progress.setVisibility(View.GONE);
+    }
+
+    public void reloadNetWork() {
+        if (reLoadData != null) reLoadData.setVisibility(View.VISIBLE);
+    }
+
+    public void unReloadNetWork() {
+        if (reLoadData != null) reLoadData.setVisibility(View.GONE);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+}

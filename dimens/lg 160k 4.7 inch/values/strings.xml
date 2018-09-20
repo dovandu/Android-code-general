@@ -1,0 +1,247 @@
+<resources>
+    <string name="app_name">Driver Order In Maps</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="mylocation">Mộ Lao, Hà Đông, Hà Nội</string>
+
+
+    <!--Main-->
+    <string name="welcome_point">Điểm đón</string>
+    <string name="choose_destination">Chọn điểm đến</string>
+    <string name="take_a_car">Đi nhờ xe</string>
+    <string name="service_not_available">service not available</string>
+    <string name="invalid_lat_long_used">invalid lat long used</string>
+    <string name="no_address_found">no address found</string>
+
+    <!--Navigation-->
+    <string name="trip">Chuyến đi</string>
+    <string name="favorite">Yêu thích</string>
+    <string name="support">Hỗ trợ</string>
+    <string name="settiing">Cài đặt</string>
+    <string name="become_a_driver">Trở thành tài xế</string>
+    <string name="tv_price">Giá chuyến đi</string>
+    <string name="book_a_car">Đặt xe</string>
+    <string name="confirm_book_a_car">Xác Nhận Đặt Xe</string>
+
+    <string name="action_hide">Hide Panel</string>
+    <string name="action_show">Show Panel</string>
+    <string name="action_anchor_enable">Enable Anchor Point</string>
+    <string name="action_anchor_disable">Disable Anchor Point</string>
+
+    <string-array name="namedriver">
+        <item>Nguyễn Đình Huấn</item>
+        <item>Nguyễn Đình Huấn</item>
+        <item>Nguyễn Đình Huấn</item>
+        <item>Nguyễn Đình Huấn</item>
+        <item>Nguyễn Đình Huấn</item>
+        <item>Nguyễn Đình Huấn</item>
+        <item>Nguyễn Đình Huấn</item>
+        <item>Nguyễn Đình Huấn</item>
+        <item>Nguyễn Đình Huấn</item>
+        <item>Nguyễn Đình Huấn</item>
+    </string-array>
+
+    <string-array name="startpoint">
+        <item>Mộ Lao, Hà Đông, Hà Nội</item>
+        <item>Mộ Lao, Hà Đông, Hà Nội</item>
+        <item>Mộ Lao, Hà Đông, Hà Nội</item>
+        <item>Mộ Lao, Hà Đông, Hà Nội</item>
+        <item>Mộ Lao, Hà Đông, Hà Nội</item>
+        <item>Mộ Lao, Hà Đông, Hà Nội</item>
+        <item>Mộ Lao, Hà Đông, Hà Nội</item>
+        <item>Mộ Lao, Hà Đông, Hà Nội</item>
+        <item>Mộ Lao, Hà Đông, Hà Nội</item>
+        <item>Mộ Lao, Hà Đông, Hà Nội</item>
+
+    </string-array>
+
+    <string-array name="hours">
+        <item>08:30</item>
+        <item>08:30</item>
+        <item>08:30</item>
+        <item>08:30</item>
+        <item>08:30</item>
+        <item>08:30</item>
+        <item>08:30</item>
+        <item>08:30</item>
+        <item>08:30</item>
+        <item>08:30</item>
+    </string-array>
+
+    <string-array name="dates">
+        <item>14/02/2017</item>
+        <item>14/02/2017</item>
+        <item>14/02/2017</item>
+        <item>14/02/2017</item>
+        <item>14/02/2017</item>
+        <item>14/02/2017</item>
+        <item>14/02/2017</item>
+        <item>14/02/2017</item>
+        <item>14/02/2017</item>
+        <item>14/02/2017</item>
+    </string-array>
+
+    <string-array name="statuswait">
+        <item>(Chờ lái xe xác nhận)</item>
+        <item>(Chờ lái xe xác nhận)</item>
+        <item>(Chờ lái xe xác nhận)</item>
+        <item>(Chờ lái xe xác nhận)</item>
+        <item>(Chờ lái xe xác nhận)</item>
+        <item>(Chờ lái xe xác nhận)</item>
+        <item>(Chờ lái xe xác nhận)</item>
+        <item>(Chờ lái xe xác nhận)</item>
+        <item>(Chờ lái xe xác nhận)</item>
+        <item>(Chờ lái xe xác nhận)</item>
+
+    </string-array>
+
+    <string-array name="statussucess">
+        <item>(Thành công)</item>
+        <item>(Thành công)</item>
+        <item>(Thành công)</item>
+        <item>(Thành công)</item>
+        <item>(Thành công)</item>
+        <item>(Thành công)</item>
+        <item>(Thành công)</item>
+        <item>(Thành công)</item>
+        <item>(Thành công)</item>
+        <item>(Thành công)</item>
+    </string-array>
+
+    <string-array name="endpoint">
+        <item>Mộ Lao, Hà Đông, Hà Nội</item>
+        <item>Mộ Lao, Hà Đông, Hà Nội</item>
+        <item>Mộ Lao, Hà Đông, Hà Nội</item>
+        <item>Mộ Lao, Hà Đông, Hà Nội</item>
+        <item>Mộ Lao, Hà Đông, Hà Nội</item>
+        <item>Mộ Lao, Hà Đông, Hà Nội</item>
+        <item>Mộ Lao, Hà Đông, Hà Nội</item>
+        <item>Mộ Lao, Hà Đông, Hà Nội</item>
+        <item>Mộ Lao, Hà Đông, Hà Nội</item>
+        <item>Mộ Lao, Hà Đông, Hà Nội</item>
+
+    </string-array>
+
+    <string-array name="birthdriver">
+        <item>16/10/1988</item>
+        <item>16/10/1988</item>
+        <item>16/10/1988</item>
+        <item>16/10/1988</item>
+        <item>16/10/1988</item>
+        <item>16/10/1988</item>
+        <item>16/10/1988</item>
+        <item>16/10/1988</item>
+        <item>16/10/1988</item>
+        <item>16/10/1988</item>
+    </string-array>
+
+    <string-array name="numberdriver">
+        <item>0985015696</item>
+        <item>0985015696</item>
+        <item>0985015696</item>
+        <item>0985015696</item>
+        <item>0985015696</item>
+        <item>0985015696</item>
+        <item>0985015696</item>
+        <item>0985015696</item>
+        <item>0985015696</item>
+        <item>0985015696</item>
+    </string-array>
+
+    <string-array name="typecar">
+        <item>Toyota Vios 2017</item>
+        <item>Toyota Vios 2017</item>
+        <item>Toyota Vios 2017</item>
+        <item>Toyota Vios 2017</item>
+        <item>Toyota Vios 2017</item>
+        <item>Toyota Vios 2017</item>
+        <item>Toyota Vios 2017</item>
+        <item>Toyota Vios 2017</item>
+        <item>Toyota Vios 2017</item>
+        <item>Toyota Vios 2017</item>
+    </string-array>
+
+    <string-array name="lisencecars">
+        <item>30A - 161088</item>
+        <item>30A - 161088</item>
+        <item>30A - 161088</item>
+        <item>30A - 161088</item>
+        <item>30A - 161088</item>
+        <item>30A - 161088</item>
+        <item>30A - 161088</item>
+        <item>30A - 161088</item>
+        <item>30A - 161088</item>
+        <item>30A - 161088</item>
+
+    </string-array>
+
+    <string-array name="price">
+        <item>850.000 VNĐ</item>
+        <item>850.000 VNĐ</item>
+        <item>850.000 VNĐ</item>
+        <item>850.000 VNĐ</item>
+        <item>850.000 VNĐ</item>
+        <item>850.000 VNĐ</item>
+        <item>850.000 VNĐ</item>
+        <item>850.000 VNĐ</item>
+        <item>850.000 VNĐ</item>
+        <item>850.000 VNĐ</item>
+    </string-array>
+
+    <!--Dialog Đặt xe-->
+    <string name="steps">Các bước đặt xe</string>
+    <string name="steps1">1. Khác nhập số điện thoại và đặt xe</string>
+    <string name="steps2">2. Lái xe gọi lại và xác nhận với khách hàng</string>
+    <string name="steps3">3. Lái xe xác nhận và đón khách theo giờ hoặc hủy chuyến nếu thông tin không chính xác</string>
+    <string name="enter_number">Nhập SĐT</string>
+
+    <!--Thông tin đặt xe-->
+    <string name="book_infor">Thông tin đặt xe</string>
+    <string name="how_to_charge">Cách tính tiền</string>
+    <string name="minkm">KM tối thiểu nhận chạy</string>
+    <string name="price10">10.000 VNĐ/KM</string>
+    <string name="price8">8.000 VNĐ/KM</string>
+    <string name="price_reduce">Giảm 3.000 VNĐ/KM</string>
+    <string name="maxkm">KM tối đa nhận chạy</string>
+    <string name="radius90">Bán kính &lt; 100 KM</string>
+    <string name="radius100">Bán kính &gt; 100 KM</string>
+    <string name="radius150">Bán kính &lt; 150 KM</string>
+    <string name="incurred">Phát sinh</string>
+    <string name="round_trip">Khứ hồi</string>
+    <string name="other">Khác</string>
+    <string name="image">Hình ảnh</string>
+    <string name="agree">Thỏa thuận</string>
+
+    <!--Quản lý đặt xe và chuyến đi -->
+    <string name="manage">Quản lý đặt xe</string>
+    <string name="yourtrip">Chuyến đi của bạn</string>
+    <string name="status">Trạng thái</string>
+    <string name="wait">(Chờ lái xe xác nhận)</string>
+    <string name="wait_driver">Chờ lái xe đón theo giờ đặt</string>
+    <string name="cancle">Hủy chuyến</string>
+    <string name="sucess">(Thành công)</string>
+
+    <!--Chi tiết chuyến đi-->
+    <string name="detail">Chi tiết chuyến đi</string>
+    <string name="bill">Hóa đơn</string>
+    <string name="distance">Quãng đường</string>
+    <string name="price">Giá</string>
+    <string name="promotion">Khuyến mại</string>
+    <string name="pay">Thành tiền</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="GPSAlertDialogTitle">GPS is setting</string>
+    <string name="GPSAlertDialogMessage">GPS is not enabled. Do you want to go to setting menu</string>
+    <string name="cancel">Cancel</string>
+    <string name="location_enable">Location enabled !</string>
+    <string name="warning">Warning: You must enabled location to use app!</string>
+
+
+</resources>

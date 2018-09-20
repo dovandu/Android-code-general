@@ -1,0 +1,125 @@
+The 3 steps to writing great sofware:
+
+1. Make sure your software does what the customer wants it to do
+
+2. Apply base 00 principle to add flexibility
+
+3. Strive for a maintainable reusable design
+
+<--============================================================-->
+
+00 Principle:
+-------------
+
+
+1. Encapsulate what varies
+
+2. Code to an interface rather than to an implementation
+
+3. Each class in your application should have only one reason to change
+
+4. Classes are about behavior and functionality
+
+5. Classes should be open for extension, but close for modification (the OCP)
+
+6. Avoid duplicate code by abstracting out things that are common and placing them in a sing lacation (the DRY priciple)
+
+7. Every object in your system should have a single respinsibility, and all the obkect's services should be focused on 
+	carrying out that single priciple (the SRP)
+
+8. Subclasses should be suitable for their base classes (the LSP)
+
+<--============================================================-->
+
+
+Programming Practices:
+----------------------
+
+1. Programming by contract sets up an agreement about how your software behaves that you and users of your software agree to abide by
+
+2. Defensive programming doesn't trust other software, and does extendsive error and data checking to ensure the other sofware doesn't 
+give you bad or unsafe information
+
+<--============================================================-->
+
+Developer Approaches:
+----------------------
+
+1. Use case driven development takes a single use case in your system, and focuses on completing the code to 
+   implement that entire use case, including all of its scenario, before moving on to anything else in the application
+   
+2. Feature driven development focuses on a single feature, and codes all the behavior of that feature,
+    before moving on to anything else in the application
+	
+3. Test driven development writes scenarior for a piece of functionality before writing the code for that
+   functionality. Then you write software to pass all the tests.
+   
+4. Good software development usually incorporates all of these development models at different stages of the development cycle.
+
+
+
+<--============================================================-->
+
+A. Who am I? Solution   :    ===> Subclass --- Delegated Class --- Aggregated CLass --- Delegating Class--- Composite Class
+
+1. I'm substitutable for my base type: ==> Subclass
+
+2. I let someone else do things for me: ==> delegatin class, Composite class
+--> This is basic delegation definition, but a class that uses composition uses other classes for behavior, also
+
+3. My behavior is used as part of another class's behavior  ==> Aggregated class
+
+4. I change the behavior of another class ==> Subclass
+
+5. I don't change the behavior of another class ==> Delegated class, Aggregated class, Delegating class, Composite class;
+
+6. I can combine the behavior of other classes together. ==> Composite class, delegating class
+
+7. I'm not gonna go away, even if other related classes do ==> Aggregated class, Delegated class
+
+8. I get my behavior and functionality from my base type  ==> Subclass
+
+<--============================================================-->
+
+B. Who am I? Solution   : 
+
+1. I'm very wll-order. I prefer to tke thing one step at a tiem, 
+	until I've made it from start to finish : ==> Use case Drivent Development.
+
+2. Well sure, she said she would call, but how can you really believe anyone anymore? : ==> Defensive Programming
+
+3. Oh, absolutely, requirements really get me motivatied: ==> Feature Drivent Development,  Use case Drivent Development.
+
+4. I'm very well-behaved. In fact, I've been forcusing on all of my own beh before moving on to anything else:==> all of them!
+
+5. Hey, you're big boy. You can deal with that on your own... it's really not my problem anymore, is it? ==> Programming by Contract
+
+6. As long as you're good with it, so am I. Who am I to tell you what you can expect from me: ==> Programming by Contract
+
+============================
+|| THE OOA & A LIFECYCLE  ||
+============================
+
+1.Feature List ==> 2.Use Case Diagrams ==> 3.Break Up the Problem ==> 4.Requirement ==> 5.Domain Analysis ==> 6.Prelimnary Design ==> 7.Implementation ==> 8.Delivery
+
+1. Feature List: figure out what your app is supposed to do at a high level
+
+2. Use Case Diagrams: Nail down the big processes that your app performs, and any extrnal forces that are involved.
+
+3. Break Up the Problem: Break your application up into modules of functionality, and then decide on an order in which to tackle each of your modules
+
+4. Requirements: Figure out the individual requirements for each module, and make sure those fit in with the big picture
+
+5. Domain Analysis: Figure out how your use cases ,ap to objects in your app, and make sure your customer is on the same page as you are
+
+6. Prelimnary Design: Fill in detail about your object, define relationships between the objects, and apple principles and patterms
+
+7. Implementation: Write code, test it, and make it works. Do this for each behavior, each feature, each use case, each problem, until you're done
+
+8. Delivery: You're done ! release your software, submit your invoices, and get paid.
+
+
+
+
+
+

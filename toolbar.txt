@@ -1,0 +1,44 @@
+xml
+-----------------------------------
+
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:minHeight="?attr/actionBarSize" >
+</android.support.v7.widget.Toolbar>
+-----------------------------------------
+activity
+--------------------------------------
+Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+setSupportActionBar(toolbar);
+
+getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+@Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+-----------------------------------------
+fragment
+---------------------------------------
+
+((ActionBarActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+((ActionBarActivity) getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+---------------------------------------------------------------------------------------------
+toolbar title color white and arrow back white:
+
+app:theme="@style/ToolBarStyle"
+
+  <!--Toolbar-->
+    <style name="ToolBarStyle" parent="Theme.AppCompat">
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="actionMenuTextColor">@android:color/white</item>
+    </style>
+

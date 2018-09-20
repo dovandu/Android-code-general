@@ -1,0 +1,24 @@
+1. create class RecyclerItemClickListener
+2. use this method:
+
+recycleview.addOnItemTouchListener( new RecyclerItemClickListener(context, recycleview ,new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+                        // do whatever
+                        switch (position){
+                            case 0:
+                                showDialogBookaCar();
+                                break;
+                            case 1:
+                                showDialogBookaCar();
+                                break;
+                            case 2:
+                                showDialogBookaCar();
+                                break;
+                        }
+                    }
+
+                    @Override public void onLongItemClick(View view, int position) {
+                        // do whatever
+                    }
+                })
+        );

@@ -1,0 +1,107 @@
+Chấm đầu dòng: &#8226;
+Xuống dòng: <br/>           <br/><br/>             
+In đậm: <b>đậm</b>
+in nghiêng: <i>italics</i>
+gạch chân: <u>underline</u>
+
+<u><b>Hỏi và đáp khảo hạch lý thuyết võ đạo</b></u>
+
+<u><b>Kiến thức Vovinam Việt Võ Đạo</b></u>
+
+http://img.youtube.com/vi/XzAhtxAlQos/0.jpg
+
+
+- Xuống dòng:
+do with your HTM.fromHtml(subTitle) call: a "\n" doesn't mean bupkis to HTML. Try <br/> instead of "\n".
+
+ "video01" : {
+     "content" : "",
+      "inforclip" : "",
+      "linkAvartar" : "",
+      "linkImage" : "",
+      "linkVideo" : "",
+      "mucdichTitle" : "",
+      "noiDungTitle" : "",
+      "persons" : "",
+	  "pratices" : "",
+      "thucHienTitle" : "",
+      "timeVideo" : "",
+      "title" : ""
+    }
+
+
+
+<resource>
+<string name="your_string_here">This is an &lt;u>underline&lt;/u>.</string>
+Because "<" could be a keyword at some time.
+
+And for Displaying
+
+TextView textView = (TextView) view.findViewById(R.id.textview);
+textView.setText(Html.fromHtml(getString(R.string.your_string_here)));
+=====================================================================================================================
+- Viết chữ đậm:
+you can define the string in xml as <string name="text_to_show">Hey &lt;b>This is in bold&lt;/b>
+
+Then in code, use this to convert to CharSequence and then use it for e.g in TextView
+
+String text = getResources().getString(R.string.text-to_show);
+CharSequence styledText = Html.fromHtml(text);
+textview.setText(styledText);
+================================
+textView.setText(Html.fromHtml("<b>Title</b>: Text"));
+If you have text in dynamic way..
+
+And to define formatings in Strings.xml you can do like,
+
+<string name="text1">This text uses <b>bold</b> and <i>italics</i> 
+by using inline tags such as <b> within the string file.</string>
+======================================================================
+- đặt nốt chấm đầu dòng:
+<string name="sample_string"><![CDATA[some test line 1 <br />some test line 2]]></string>
+so wrap in CDATA is necessary and breaks added inside as html tags
+
+=================================================================
+
+
+
+1) for less than(<), use &lt;
+
+2) for greateh than(>), use &gt;
+
+3)result: 1000,000
+
+DecimalFormat formatter = new DecimalFormat("#,###,###");
+String yourFormattedString = formatter.format(price);
+
+4)
+
+int i=Integer.parseInt("hello123".replaceAll("[\\D]",""));
+int j=Integer.parseInt("123hello".replaceAll("[\\D]",""));
+int k=Integer.parseInt("1h2el3lo".replaceAll("[\\D]",""));
+output:
+
+i=123;
+j=123;
+k=123;
+
+========================================
+5)
+conver ArrayList to String:
+
+List<String> list = new ArrayList<String>();
+list.add("Item 1");
+list.add("Item 2");
+String joined = TextUtils.join(", ", list);
+
+=============================================
+6) conver Object to String and back:
+
+Gson gson = new Gson();
+ String json = gson.toJson(tablePriceObjects);
+                        Log.d("toJson", json);
+
+convert back:
+
+listJsonArray = pre.getString("tablePriceObjects", null);
+tablePriceObjects = gson.fromJson(listJsonArray, new TypeToken<List<TablePriceObject>>(){}.getType());						

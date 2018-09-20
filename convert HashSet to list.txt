@@ -1,0 +1,18 @@
+ HashSet<Integer> mang = new HashSet<>();
+ while (mang.size() < number) {                                      
+      Random r = new Random();                                      
+ 
+      int Result = r.nextInt(max - min) + min;                                      
+      mang.add(Result);                                      
+      String tiket = Result + "";                                      
+      if (Result < 10) {                                      
+          tiket = "0" + tiket;                                      
+      } else {                                      
+          tiket = Result + "";                                      
+      }                                      
+      tickets.add(tiket);                                      
+  }                                      
+  Iterator iterator = mang.iterator();                                      
+  while (iterator.hasNext()) {
+   list.add(String.valueOf(iterator.next()));                                    
+									 } 

@@ -1,0 +1,11 @@
+
+208
+down vote
+Specify the ID in the <include>
+
+<include layout="@layout/test" android:id="@+id/test1" />
+Then use two findViewById to access fields in the layout
+
+View test1View = findViewById(R.id.test1);
+TextView test1TextView = (TextView) test1View.findViewById(R.id.text);
+Using that approach, you can access any field in any include you have.

@@ -1,0 +1,21 @@
+   private void doubleclick(){
+        i++;
+        Handler handler = new Handler();
+        Runnable r = new Runnable() {
+
+            @Override
+            public void run() {
+                i = 0;
+            }
+        };
+
+        if (i == 1) {
+            //Single click
+            handler.postDelayed(r, 250);
+        } else if (i == 2) {
+            //Double click
+            flashLightOn();
+            lnTurnoff_fash.setVisibility(View.VISIBLE);
+            i = 0;
+        }
+    }

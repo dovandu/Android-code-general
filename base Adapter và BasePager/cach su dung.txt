@@ -1,0 +1,97 @@
+khai báo và truyen du lieu:
+
+ mRecyclerView = (RecyclerView) view.findViewById(R.id.mRecyclerView);
+       /* ArrayList<String> list = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            String name_car = "Toyota - Corollar";
+            list.add(name_car);
+        }*/
+
+        BaseAdapter adapter = new BaseAdapter(getContext(), objects) {
+            @Override
+            public BaseViewHolder getViewHolder(ViewGroup parent, int viewType) {
+                LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+                View itemView = inflater.inflate(R.layout.item_price_table, parent, false);
+                return new ViewHolder(itemView);
+            }
+        };
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext().getApplicationContext(),
+                LinearLayoutManager.VERTICAL, false);
+        mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setAdapter(adapter);
+        adapter.setOnItemClickListener(this);
+		
+		
+=============================================================
+set click
+
+ @Override
+    public void onRecyclerViewItemClicked(int position, int id) {
+        if (id == -1) {
+            Toast.makeText(getContext(), "complete item clicked", Toast.LENGTH_LONG).show();
+        } else {
+            showDalogFragmentFull(new DetailPriceDialogTableFragment());
+//            Toast.makeText(getContext(), "setting button clicked", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private class ViewHolder extends BaseViewHolder {
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+        }
+
+        LinearLayout ln_parent;
+        TextView tv_name_car;
+        Button btn_detail;
+        TextView tv_name_method;
+        TextView tv_method_infor;
+        TextView tv_price;
+        TextView tv_date_apply;
+
+        @Override
+        public void init(View view) {
+
+            ln_parent = (LinearLayout) view.findViewById(R.id.ln_parent);
+            tv_name_car = (TextView) view.findViewById(R.id.tv_name_car);
+            tv_name_method = (TextView) view.findViewById(R.id.tv_name_method);
+            tv_method_infor = (TextView) view.findViewById(R.id.tv_method_infor);
+            tv_price = (TextView) view.findViewById(R.id.tv_price);
+            tv_date_apply = (TextView) view.findViewById(R.id.tv_date_apply);
+            btn_detail = (Button) view.findViewById(R.id.btn_detail);
+        }
+
+        @Override
+        public void showDataOnView(Object data, int index) {
+            if (data instanceof TablePriceObject) {
+
+                TablePriceObject tablePriceObject = (TablePriceObject) data;
+                tv_name_car.setText(tablePriceObject.getName_car());
+                tv_name_method.setText(tablePriceObject.getName_method());
+                tv_method_infor.setText(tablePriceObject.getMin_distance() + " - " + tablePriceObject.getMax_distance());
+                tv_price.setText(tablePriceObject.getPriceObjects().get(0).getPrice());
+                tv_date_apply.setText(tablePriceObject.getDates_apply().toString());
+
+            }
+        }
+
+        @Override
+        public void showDataSetClickItem(final int position, final OnRecyclerViewItemClickListener listener) {
+            ln_parent.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    listener.onRecyclerViewItemClicked(position, -1);
+                }
+            });
+            btn_detail.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    listener.onRecyclerViewItemClicked(position, v.getId());
+                }
+            });
+        }
+    }

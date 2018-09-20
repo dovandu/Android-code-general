@@ -1,0 +1,144 @@
+How to inflate one view with a layout
+
+RelativeLayout item = (RelativeLayout)findViewById(R.id.item);
+View child = getLayoutInflater().inflate(R.layout.child, null);
+item.addView(child);
+
+Android Studio
+
+Right click on your project New > Folder > AIDL Folder
+Press Finish
+Right click on aidl folder New > Package
+Insert android.content.pm and press OK
+Download IPackageStatsObserver.aidl
+Copy the aidl file inside the android.content.pm package
+Build > Rebuild Project
+
+
+copy t?ng file 1
+
+
+seclick for recycleview:
+
+
+favorite
+1
+I have a custom object :
+
+Student.class
+
+public class Student {
+  private String name;
+  private String age;
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getAge() {
+    return age;
+  }
+
+  public void setAge(String age) {
+    this.age = age;
+  }
+}
+
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+
+  private Context context;
+  private ArrayList<Student> students = new ArrayList<>();
+
+  public MyAdapter(Context mContext, ArrayList<Student> mStudents) {
+    this.context = mContext;
+    this.students = mStudents;
+  }
+
+  @Override public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    View v = LayoutInflater.from(context).inflate(R.layout.item_row, parent, false);
+    return new ViewHolder(v);
+  }
+
+  @Override public void onBindViewHolder(ViewHolder holder, int position) {
+
+    final Student student = students.get(position);
+
+    holder.name.setText(student.getName());
+    holder.age.setText(student.getAge());
+
+    holder.setClickListener(new ItemClickListener() {
+      @Override public void onClickItem(int pos) {
+        Toast.makeText(context, "CLICK : " + student.getName(), Toast.LENGTH_SHORT).show();
+      }
+
+      @Override public void onLongClickItem(int pos) {
+        Toast.makeText(context, "LONG CLICK : " + student.getName(), Toast.LENGTH_SHORT).show();
+      }
+    });
+  }
+
+  @Override public int getItemCount() {
+    return students.size();
+  }
+
+  public static class ViewHolder extends RecyclerView.ViewHolder
+      implements View.OnClickListener, View.OnLongClickListener {
+
+    private TextView name;
+    private TextView age;
+    private ItemClickListener mListener;
+
+    public ViewHolder(View itemView) {
+
+      super(itemView);
+      name = (TextView) itemView.findViewById(R.id.tv_name);
+      age = (TextView) itemView.findViewById(R.id.tv_age);
+
+      itemView.setOnClickListener(this);
+      itemView.setOnLongClickListener(this);
+    }
+
+    public void setClickListener(ItemClickListener listener) {
+      this.mListener = listener;
+    }
+
+    @Override public void onClick(View view) {
+      mListener.onClickItem(getLayoutPosition());
+    }
+
+    @Override public boolean onLongClick(View view) {
+      mListener.onLongClickItem(getLayoutPosition());
+      return true;
+    }
+  }
+
+  public interface ItemClickListener {
+    void onClickItem(int pos);
+
+    void onLongClickItem(int pos);
+  }
+}
+
+
+As you can see in onBindViewHolder(), i set ItemClickListener for holder.
+
+@Override public void onBindViewHolder(ViewHolder holder, int position) {
+
+    final Student student = students.get(position);
+    holder.name.setText(student.getName());
+    holder.age.setText(student.getAge());
+
+    holder.setClickListener(new ItemClickListener() {
+      @Override public void onClickItem(int pos) {
+        Toast.makeText(context, "CLICK : " + student.getName(), Toast.LENGTH_SHORT).show();
+      }
+
+      @Override public void onLongClickItem(int pos) {
+        Toast.makeText(context, "LONG CLICK : " + student.getName(), Toast.LENGTH_SHORT).show();
+      }
+    });
+  }

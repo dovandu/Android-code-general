@@ -1,0 +1,39 @@
+private void notification() {
+        try {
+            views = new RemoteViews(getContext().getPackageName(),
+                    R.layout.notification_custom);
+
+            Intent intent = new Intent(getContext().getApplicationContext(), MainActivity.class);
+            PendingIntent pIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent,
+                    PendingIntent.FLAG_UPDATE_CURRENT);
+
+            builder = new NotificationCompat.Builder(getContext())
+                    // Dismiss Notification
+                    .setSmallIcon(R.mipmap.ic_launcher)
+                    .setAutoCancel(false)
+                    .setContentIntent(pIntent)
+                    .setOngoing(true)
+                    .setContent(views);
+
+            views.setImageViewResource(R.id.im_background, myImageList[background_position]);
+
+            views.setTextViewText(R.id.tv_per1, mNameBoy);
+            views.setTextViewText(R.id.tv_per2, mNameGirl);
+
+            views.setTextViewText(R.id.tv_days, lovedays + "");
+
+            if (mAvatarBoy != null) {
+                Uri i = Uri.parse(mAvatarBoy);
+                views.setImageViewUri(R.id.im_per1, i);
+            }
+            if (mAvatarGirl != null) {
+                Uri i = Uri.parse(mAvatarGirl);
+                views.setImageViewUri(R.id.im_per2, i);
+
+            }
+
+            notificationmanager.notify(0, builder.build());
+        } catch (Exception e) {
+        }
+
+    }

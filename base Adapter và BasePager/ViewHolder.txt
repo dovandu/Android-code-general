@@ -1,0 +1,72 @@
+private class TicketWaitHolder extends BaseViewHolder {
+
+        public TicketWaitHolder(View itemView) {
+            super(itemView);
+        }
+
+        BallGroupView mBallGroupView;
+        TextView tv_infor;
+        TextView tv_status;
+        Button btn_delete;
+        ImageView im_logo;
+        LinearLayout ln_parent;
+
+        @Override
+        public void init(View view) {
+            mBallGroupView = (BallGroupView) view.findViewById(R.id.mBallGroupView);
+            tv_infor = (TextView) view.findViewById(R.id.tv_infor);
+            tv_status = (TextView) view.findViewById(R.id.tv_status);
+            btn_delete = (Button) view.findViewById(R.id.btn_delete);
+            im_logo = (ImageView) view.findViewById(R.id.im_logo);
+            ln_parent = (LinearLayout) view.findViewById(R.id.ln_parent);
+        }
+
+        @Override
+        public void showDataOnView(Object data, final int index) {
+		
+		if (data instanceof Ticket) {
+                Ticket ticket = (Ticket) data;
+                String code = ticket.getCode();
+                Log.d("Stringcode", code);
+                String date = ticket.getDate();
+                String productCode = ticket.getProductCode();
+                String methodName = ticket.getMethodName();
+                String status = "0";
+                List<String> numbers = ticket.getNumbers();
+                String money = ticket.getMoney();
+
+                tv_infor.setText(code + " " + date + " " + methodName);
+                mBallGroupView.showData(numbers);
+				}
+
+        }
+
+        @Override
+        public void showDataSetClickItem(final int index, final OnRecyclerViewItemClickListener listener) {
+            
+
+
+                ln_parent.setOnClickListener(new View.OnClickListener()
+                {
+
+                    @Override
+                    public void onClick(View v)
+                    {
+                        listener.onRecyclerViewItemClicked(index, -1);
+                    }
+                });
+                btn_delete.setOnClickListener(new View.OnClickListener()
+                {
+
+                    @Override
+                    public void onClick(View v)
+                    {
+                        listener.onRecyclerViewItemClicked(index, v.getId());
+                    }
+                });
+            
+
+
+        }
+
+    }
