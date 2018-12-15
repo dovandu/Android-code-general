@@ -9,3 +9,5 @@ https://github.com/mzgreen/HideOnScrollExample
 ```sh
 mover jcenter() below google()
 ```
+## 3: Guide Android networking:
+https://github.com/codepath/android_guides/wiki/Networking-with-the-Fast-Android-Networking-Library
