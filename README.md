@@ -22,3 +22,6 @@ https://uxplanet.org/top-15-seekbar-and-slider-github-ui-libraries-and-component
 ## 6: Custom spinner item (icon and text):
 - https://abhiandroid.com/ui/custom-spinner-examples.html
 - https://stackoverflow.com/questions/38796775/add-image-to-item-spinner
+
+## 7: Loadmore RecycleView
+- https://github.com/codepath/android_guides/wiki/Endless-Scrolling-with-AdapterViews-and-RecyclerView
