@@ -49,11 +49,11 @@ try {
 }
 ```
 - release
-``` I have also experience an issue like by using the above HashKey the login works fine if I install the release APK directly to the device, But when I upload the APK to Play Store and install app from store then it shows the same Login failed error. The fix for this is as follows:
+I have also experience an issue like by using the above HashKey the login works fine if I install the release APK directly to the device, But when I upload the APK to Play Store and install app from store then it shows the same Login failed error. The fix for this is as follows:
 
 1. Go to Release Management here (https://play.google.com/apps/publish/)
 2. Select Release Management  -> App Signing
 3. You can see SHA1 key in hex format App signing certificate. 
 4. Copy the SHA1 in hex format and convert it in to base64 format, you can use this link (http://tomeko.net/online_tools/hex_to_base64.php) do that without the SHA1: part of the hex. 
 5. Go to Facebook developer console and add the key(after convert to base 64) in the settings —> basic –> key hashes.
-```
+
