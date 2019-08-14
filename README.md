@@ -57,3 +57,6 @@ I have also experience an issue like by using the above HashKey the login works 
 4. Copy the SHA1 in hex format and convert it in to base64 format, you can use this link (http://tomeko.net/online_tools/hex_to_base64.php) do that without the SHA1: part of the hex. 
 5. Go to Facebook developer console and add the key(after convert to base 64) in the settings —> basic –> key hashes.
 
+## 9. How to create vector drawables for android?
+- https://stackoverflow.com/a/40398230/10819917
+
